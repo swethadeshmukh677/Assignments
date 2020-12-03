@@ -1,0 +1,81 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header colHeader bg-success">
+                <div class="row">
+                    <div class="col-md-6">
+                        Employee Portal
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class='table table-striped tableStyle pt-4'>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Employee Id</th>
+                            <th>Employee FullName</th>
+                            <th>Employee Address</th>
+                            <th>Employee MobileNo</th>
+                            <th>Employee Email</th>
+                            <th>Employee Department</th>
+                           <!--  <th>Employee ZipCode</th>  
+                             <th>Employee DOB</th>
+                            <th>Employee Designation</th>                         
+                            <th>Employee Gender</th>
+                            <th>Employee AltNumber</th>
+                            <th>Employee BankName</th>
+                            <th>Employee AccountNumber</th>
+                            <th>Employee JoiningDate</th>
+                            <th>Employee CurrentCTC</th>
+                            <th>Employee Monthly salary</th>
+                            <th>Employee Current Designation</th> 
+                            <th>Message</th>
+                            <th>Result</th> -->
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor='let eList of empList1; let i = index' >
+                            <td><input type="checkbox" /></td>
+                            <td>{{ eList.EmployeeId}}</td>
+                            <td *ngIf="!eList.isEdit">{{ eList.EmpFullName}}</td>
+                            <td *ngIf="eList.isEdit"><input type="text" [(ngModel)]="eList.EmpFullName"></td>
+                            <td *ngIf="!eList.isEdit">{{ eList.EmployeeAddress}}</td>
+                            <td *ngIf="eList.isEdit"><input type="text" [(ngModel)]="eList.EmployeeAddress"></td>
+                            <td *ngIf="!eList.isEdit">{{ eList.EmployeeMobileNo }}</td>
+                            <td *ngIf="eList.isEdit"><input type="text" [(ngModel)]="eList.EmployeeMobileNo"></td>
+                            <td *ngIf="!eList.isEdit">{{ eList.EmployeeEmail }}</td>
+                            <td *ngIf="eList.isEdit"><input type="text" [(ngModel)]="eList.EmployeeEmail"></td>
+                            <td *ngIf="!eList.isEdit">{{ eList.EmployeeDepartment}}</td>
+                            <td *ngIf="eList.isEdit"><input type="text" [(ngModel)]="eList.EmployeeDepartment"></td>
+                            <!-- <td>{{ eList.EmployeeZipCode}}</td>
+                                <td>{{ eList.EmployeeDob }}</td>
+                                 <td>{{ eList.EmployeeDesignation}}</td>
+                            <td>{{ eList.Employeegender }}</td>
+                            <td>{{ eList.EmployeeAltNumber}}</td>
+                            <td>{{ eList.EmployeeBankName}}</td>
+                            <td>{{ eList.EmployeeAccountNumber}}</td>
+                            <td>{{ eList.EmployeeJoiningDate}}</td>
+                            <td>{{ eList.CurrentCTC }}</td>
+                            <td>{{ eList.EmployeeMonthlysalary }}</td>
+                            <td>{{ eList.EmployeeDesignation}}</td>
+                            <td>{{ eList.EmployeeCurrentDesignation}}</td> 
+                            <td>{{ eList.Message}}</td>
+                            <td>{{ eList.Result}}</td>        -->   
+                            <td *ngIf="!eList.isEdit"><button class="btn btn-success" (click)="eList.isEdit = true">Edit</button></td>
+                            <td *ngIf="eList.isEdit"><button class="btn btn-success" (click)="eList.isEdit = false">Cancel Edit</button></td>               
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  
+</div>

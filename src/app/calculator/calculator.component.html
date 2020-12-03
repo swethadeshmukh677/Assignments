@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-center pt-4">
+                 Calculator
+            </div>
+        </div>
+        <div class="row pt-4">
+            <div class="col-md-6 text-center">
+                Number 1 <input type="text" name="number1" [(ngModel)]="number1"/>
+            </div>
+            <div class="col-md-6">
+                Number 2 <input type="text" name="number2" [(ngModel)]="number2"/>
+            </div>       
+        </div>
+        <div class="row pt-4">
+            <div class="col-md-12 text-center">
+                Result <input type="text" name="Result" [value]="result"/>
+            </div>                  
+        </div>
+        <div class="row pt-4 text-center">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success widthButton" (click)="addtion()">Addition</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success widthButton" (click)="subtraction()">Subtraction</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success widthButton" (click)="multiplication()">Multiplication</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success widthButton" (click)="division()">Division</button>
+            </div>
+        </div>
+    </div>
+</div>

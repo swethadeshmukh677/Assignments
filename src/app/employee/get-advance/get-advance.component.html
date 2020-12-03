@@ -1,0 +1,54 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header colHeader bg-success">
+                <div class="row">
+                    <div class="col-md-12">
+                        Advance info
+                    </div>                    
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class='table table-striped tableStyle pt-4'>
+                    <thead>
+                        <tr>
+                            
+                            <th>Employee Id</th>
+                            <th>Advance Id</th>
+                            <th>Advance Money</th>
+                            <th>Advance Date</th>
+                            <th>Employee Name</th>
+                            <th>Message</th>
+                            <th>Result</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor='let eList of advanceList; let i = index' >
+                             
+                            <td>
+                                <div *ngIf="!eList.isEdit" >
+                                    {{ eList.EmployeeId}}
+                                </div>
+                                <div *ngIf="eList.isEdit">
+                                    <input type="text" [(ngModel)]="eList.EmployeeId"/>
+                                </div>
+                                
+                        </td>
+                            <td>{{ eList.AdvanceId}}</td>
+                            <td>{{ eList.AdvanceMoney }}</td>
+                            <td>{{ eList.AdvanceDate }}</td>
+                            <td>{{ eList.EmployeeName}}</td>                          
+                            <td><label (click)="eList.isEdit = true">Edit</label></td>
+                            <td><label *ngIf="eList.isEdit" (click)="eList.isEdit = false">cancel</label></td>                         
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  
+</div>

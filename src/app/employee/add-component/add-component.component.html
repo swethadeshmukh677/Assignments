@@ -1,0 +1,224 @@
+<form #form="ngForm" (submit)="postEmployee(form)">
+<div class="row pt-4">
+    <div class="col-md-12 colHeader">
+        Employee Details:
+    </div>  
+</div>
+<div class="row pt-4">   
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Name</div>
+            <div class="col-md-6"><input type='text' class="textBox" [(ngModel)]="iemployee.EmpFullName" name="EmpFullName" placeholder="Enter Last Name" pattern="[A-Za-z\s]{1,}" #EmpFullName="ngModel" required/>
+                <div *ngIf="(EmpFullName.touched || EmpFullName.dirty) && !EmpFullName.valid ">
+                    <div *ngIf="EmpFullName.errors?.required" class="errorRed ">Required Field</div>
+                    <div *ngIf="EmpFullName.errors?.pattern" class="errorRed ">Only Alphabets</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-6">
+     <!--    <div class="row">
+            <div class="col-md-6 text-center">ID</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeId" [(ngModel)]="iemployee.EmployeeId" placeholder="Enter id" required pattern="[0-9]{5}" #EmployeeId="ngModel"/>
+                <div *ngIf="(EmployeeId.touched || EmployeeId.dirty) && !EmployeeId.valid ">
+                    <span *ngIf="EmployeeId.errors?.required" class="errorRed ">Required Field</span>
+                    <span   *ngIf="EmployeeId.errors?.pattern" class="errorRed ">Only 5 Numbers</span>
+                </div>
+            </div>
+        </div>  -->        
+       
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Department</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeDepartment" [(ngModel)]="iemployee.EmployeeDepartment" placeholder="Enter Department" /></div>
+        </div>
+          
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Designation</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeDesignation" [(ngModel)]="iemployee.EmployeeDesignation" placeholder="Enter Designation" /></div>
+        </div>          
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Current Designation</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeCurrentDesignation" [(ngModel)]="iemployee.EmployeeCurrentDesignation" placeholder="Enter EmployeeCurrentDesignation" /></div>
+        </div>
+          
+    </div>    
+</div>
+<div class="row pt-4">
+    <div class="col-md-12 colHeader">
+        Contact Information:
+    </div>  
+</div>
+<div class="row pt-4">   
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Address</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeAddress" [(ngModel)]="iemployee.EmployeeAddress" placeholder="Enter Last Name" /></div>
+        </div>
+         
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">ZipCode</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeZipCode" [(ngModel)]="iemployee.EmployeeZipCode" placeholder="Enter Last Name" /></div>
+        </div>         
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">Mobile No.</div>
+            <div class="col-md-6"> <input type='text' class="textBox" name="EmployeeMobileNo" [(ngModel)]="iemployee.EmployeeMobileNo" placeholder="###-###-####" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" #EmployeeMobileNo="ngModel"/>
+                <div *ngIf="(EmployeeMobileNo.touched || EmployeeMobileNo.dirty) && !EmployeeMobileNo.valid ">            
+                    <div *ngIf="EmployeeMobileNo.errors?.pattern" class="errorRed  text-center">Invalid Mobile No.</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Email</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeEmail" [(ngModel)]="iemployee.EmployeeEmail" placeholder="abc@sdf.com" #EmployeeEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+                <div *ngIf="EmployeeEmail.errors?.pattern" class="errorRed  text-center">Invalid Email ID</div>
+            </div>
+        </div>        
+          
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Alternate Number</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeAltNumber" [(ngModel)]="iemployee.EmployeeAltNumber" placeholder="Enter Last Name" /></div>
+        </div>          
+    </div>    
+</div>
+<div class="row pt-4">
+    <div class="col-md-12 colHeader">
+        Personal Information:
+    </div>  
+</div>
+<div class="row pt-4">   
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">DoB</div>
+            <div class="col-md-6"><input type='date' class="textBox" name="EmployeeDOB" [(ngModel)]="iemployee.EmployeeDOB" placeholder="Enter Employee DOB" /></div>
+        </div>         
+    </div>
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">Gender</div>
+            <div class="col-md-6">
+                <div class="radio">
+                    <label><input type="radio" name="EmployeeGender">Male</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="EmployeeGender">Female</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">Unique Id</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeUniqueId" [(ngModel)]="iemployee.EmployeeUniqueId" placeholder="Enter Employee Unique Id" /></div>
+        </div>
+          
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Joinning Date</div>
+            <div class="col-md-6"><input type='date' class="textBox" name="EmployeeJoiningDate" [(ngModel)]="iemployee.EmployeeJoiningDate" placeholder="Enter Last Name" /></div>
+        </div>
+          
+    </div>
+</div>
+<div class="row pt-4">   
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Monthly Salary</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeMonthlysalary" [(ngModel)]="iemployee.EmployeeMonthlysalary" placeholder="Enter Employee DOB" /></div>
+        </div>         
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Current CTC</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeCurrentCTC" [(ngModel)]="iemployee.EmployeeCurrentCTC" placeholder="Enter Last Name" /></div>
+        </div>          
+    </div> 
+</div>
+<div class="row pt-4">
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">Result</div>
+            <div class="col-md-6"> <input type='text' class="textBox" name="Result" [(ngModel)]="iemployee.Result" placeholder="Enter Employee Unique Id" /></div>
+        </div>         
+    </div>    
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Message</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="Message" [(ngModel)]="iemployee.Message" placeholder="Enter Message" /></div>
+        </div>         
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-12 colHeader">
+        Bank Information:
+    </div>  
+</div>
+<div class="row pt-4">   
+    <div class="col-md-6 ">
+        <div class="row">
+            <div class="col-md-6 text-center">Bank Name</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeBankName" [(ngModel)]="iemployee.EmployeeBankName" placeholder="Enter Employee DOB" /></div>
+        </div>         
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Account No.</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeAccountNumber" [(ngModel)]="iemployee.EmployeeAccountNumber" placeholder="Enter Gender" /></div>
+        </div>         
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Bank City</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeBankCity" [(ngModel)]="iemployee.EmployeeBankCity" placeholder="Enter Employee Unique Id" /></div>
+        </div>         
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Bank Address</div>
+            <div class="col-md-6"> <input type='text' class="textBox" name="EmployeeBankAddress" [(ngModel)]="iemployee.EmployeeBankAddress" placeholder="Enter Last Name" /></div>
+        </div>
+         
+    </div>
+</div>
+<div class="row pt-4">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6 text-center">Bank IFSCode</div>
+            <div class="col-md-6"><input type='text' class="textBox" name="EmployeeBankIfscCode" [(ngModel)]="iemployee.EmployeeBankIfscCode" placeholder="Enter Last Name" /></div>
+        </div>        
+    </div>    
+</div>
+<div class='row'>
+    <div class='col-md-12 text-center pt-4'>
+        <button type="submit"  class="btn btn-success" [disabled]="form.invalid">Save</button>
+    </div>
+</div>
+</form>
